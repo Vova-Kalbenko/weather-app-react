@@ -87,7 +87,7 @@ const HeaderSearchBar = ({ onSubmitHandler }) => {
           />
         </form>
       </header>
-      <ToastContainer />
+      <ToastContainer  />
     </>
   )
 }
