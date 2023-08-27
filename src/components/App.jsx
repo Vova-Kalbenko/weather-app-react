@@ -16,7 +16,7 @@ export const App = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const  data  = await getWeather(searchCity)
+        const data = await getWeather(searchCity)
         setData(data)
         // console.log(data)
         // console.log(data.name)
@@ -38,29 +38,28 @@ export const App = () => {
   return (
     <>
       <HeaderSearchBar onSubmitHandler={setSearchCity} />
-<div className="app" style={{ backgroundImage: `url(${natureBg})` }}>
-      <div className="overlay">
-        {data && (
-          <div className="container">
-            <div className="section section__input">
-            </div>
-            <div className=" section section__temperature">
-              <div className="icon">
-                <h3>{data.name} ,{data.country}</h3>
-
-                <img src={data.iconURL} alt="icon" />
-                <h3>{data.description}</h3>
+      <main className="app" style={{ backgroundImage: `url(${natureBg})` }}>
+        <section className="overlay">
+          {data && (
+            <div className="container">
+              <div className="section section__input">
               </div>
-              <div className="temperature">
-                <h1>{`${(Math.round(data.temp)/10)} ℃`}</h1>
-              </div>
-            </div>
-            <WeatherInfo data={data} />
-          </div>
-        )}
+              <div className=" section section__temperature">
+                <div className="icon">
+                  <h3>{data.name} ,{data.country}</h3>
 
-      </div>
-    </div>
+                  <img src={data.iconURL} alt="icon" />
+                  <h3>{data.description}</h3>
+                </div>
+                <div className="temperature">
+                  <h1>{`${(Math.round(data.temp) / 10)} ℃`}</h1>
+                </div>
+              </div>
+              <WeatherInfo data={data} />
+            </div>
+          )}
+        </section>
+      </main>
     </>
   );
 };

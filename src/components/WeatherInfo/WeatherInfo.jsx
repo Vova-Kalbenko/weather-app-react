@@ -1,5 +1,4 @@
 import React from 'react'
-// import { AiOutlineArrowDown } from 'react-icons/ai'
 import { FaArrowDown, FaArrowUp, FaWind } from 'react-icons/fa'
 import { BiHappy } from 'react-icons/bi'
 import { MdCompress, MdOutlineWaterDrop } from 'react-icons/md'
@@ -50,21 +49,21 @@ const WeatherInfo = ({ data }) => {
     }
   ]
   return (
-    <div className="section section__descriptions">
+    <ul className="section section__descriptions">
       {cards.map(({ id, icon, title, data }) => (
 
-        <div key={id} className="card">
+        <li key={id} className="card">
           <div className="description__card-icon">
             {icon}
             <small>{title}</small>
           </div>
           <h2>{data}</h2>
-        </div>
+        </li>
 
       ))}
 
 
-    </div>
+    </ul>
   )
 }
 
