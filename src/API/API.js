@@ -17,7 +17,7 @@ const {weather,
   main: {feels_like, humidity, pressure, temp, temp_max, temp_min}, 
   wind: {speed}, 
   sys: {country}, 
-  name, } = data
+  name, cod} = data
 const {description, icon} = weather[0] 
 return {
   description,
@@ -30,7 +30,8 @@ return {
   humidity, 
   speed, 
   country,  
-  name 
+  name ,
+  cod
 }
 
 }
