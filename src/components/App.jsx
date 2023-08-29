@@ -29,11 +29,12 @@ const App = () => {
 
 
   const handleCityChange = (event) => {
-    setCity(event.target.value);
+    setCity(event.target.value.trim());
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    if (city.trim() === '') { return }
     getWeatherData();
   };
 
@@ -76,11 +77,11 @@ const App = () => {
 
       <main className="app" style={{ backgroundImage: `url(${natureBg})` }}>
         <section className="overlay">
-        {error && (
-        <div>
-          <h2 className="error">Please, enter the correct city name</h2>
-        </div>
-      )}
+          {error && (
+            <div>
+              <h2 className="error">Please, enter the correct city name</h2>
+            </div>
+          )}
           {weatherData && (
             <div className="container">
               <div className="section section__input">
