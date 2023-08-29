@@ -2,7 +2,7 @@ import React from 'react'
 import { FaArrowDown, FaArrowUp, FaWind } from 'react-icons/fa'
 import { BiHappy } from 'react-icons/bi'
 import { MdCompress, MdOutlineWaterDrop } from 'react-icons/md'
-const WeatherInfo = ({ data }) => {
+const WeatherInfo = ({ weatherData }) => {
 
 
   const cards = [
@@ -11,41 +11,41 @@ const WeatherInfo = ({ data }) => {
       id: 1,
       icon: <FaArrowDown />,
       title: 'min',
-      data: ((data.temp_min.toFixed()/10))
+      data: ((weatherData.main.temp_min.toFixed()/10))
     },
 
     {
       id: 2,
       icon: <FaArrowUp />,
       title: 'max',
-      data: ((Math.round(data.temp_max))/10),
+      data: ((Math.round(weatherData.main.temp_max))/10),
     },
 
     {
       id: 3,
       icon: <BiHappy />,
       title: 'feels like',
-      data: ((Math.round(data.temp_min))/10),
+      data: ((Math.round(weatherData.main.temp_min))/10),
     },
 
     {
       id: 4,
       icon: <MdCompress />,
       title: 'pressure',
-      data: (Math.round(data.pressure /10) + ` mm`),
+      data: (Math.round(weatherData.main.pressure /10) + ` mm`),
     },
 
     {
       id: 5,
       icon: <MdOutlineWaterDrop />,
       title: 'humidity',
-      data: (data.humidity + ` %`),
+      data: (weatherData.main.humidity + ` %`),
     },
     {
       id: 6,
       icon: <FaWind />,
       title: 'wind speed',
-      data: (data.speed + ` m/s`),
+      data: (weatherData.wind.speed + ` m/s`),
     }
   ]
   return (
