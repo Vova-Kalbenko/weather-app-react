@@ -141,3 +141,9 @@
       grid-template-columns: 1fr 1fr;
   }
 }
+
+
+.error {
+  color: 111;
+  font-size: 32px;
+}

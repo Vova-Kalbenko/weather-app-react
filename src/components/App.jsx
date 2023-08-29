@@ -5,6 +5,8 @@ import css from './HeaderSearchBar/HeaderSearchBar.module.css'
 import natureBg from '..//backgroundImages/nature.jpg'
 import getWeather from "API/API.js";
 import WeatherInfo from "./WeatherInfo/WeatherInfo";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const App = () => {
   const [city, setCity] = useState("");
   const [weatherData, setWeatherData] = useState(null);
@@ -34,7 +36,19 @@ const App = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (city.trim() === '') { return }
+    if (city.trim() === '') {
+      toast.warn('Seacrh string is empty!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
+       return 
+      }
     getWeatherData();
   };
 
@@ -103,7 +117,7 @@ const App = () => {
         </section>
       </main>
 
-
+      <ToastContainer />
     </>
   );
 };
