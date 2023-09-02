@@ -17,14 +17,21 @@ const App = () => {
   const getWeatherData = async () => {
     try {
       const data = await getWeather(city)
+
+      if (data.cod === '404') {
+        setError(true);
+        setWeatherData(null);
+        return
+      }
+
       setWeatherData(data)
 
       // console.log(data)
-      console.log(data.weather[0].icon)
+      // console.log(data.weather[0].icon)
       setError(false);
     } catch (error) {
-      setError(true);
-      setWeatherData(null);
+      console.log(error)
+
     }
   };
 
@@ -46,9 +53,9 @@ const App = () => {
         draggable: true,
         progress: undefined,
         theme: "light",
-        });
-       return 
-      }
+      });
+      return
+    }
     getWeatherData();
   };
 
